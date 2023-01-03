@@ -108,9 +108,27 @@ for (var i = 0; i < monthlyChange.length; i++){
 
 var avgChange = totalMonthlyChange / monthlyChange.length; //Takes total sum of monthly changes and divides it by the total amount
 
+//Goes through all items in the monthlyChange array and compares them to find the largest
+var greatestProfitInc = 0;
+for (var i = 0; i < monthlyChange.length; i++){
+    if (monthlyChange[i] > greatestProfitInc){
+        greatestProfitInc = monthlyChange[i]; //When a value larger than the the current value is found the current value is updated to be that larger value
+    }
+}
+
+//Goes through all items in the monthlyChange array and compares them to find the smallest
+var greatestProfitDec = 0;
+for (var i = 0; i < monthlyChange.length; i++){
+    if (monthlyChange[i] < greatestProfitDec){
+        greatestProfitDec = monthlyChange[i]; //When a value smaller than the the current value is found the current value is updated to be that smaller value
+    }
+}
+
 //Console Output
 console.log('Financial Analysis');
 console.log('------------------');
-console.log('Total Months:', finances.length);
-console.log('Total: $', totalProfit);
-console.log('Average Change:', avgChange.toFixed(2)); //toFixed method rounds number to specified decimal place
+console.log('Total Months:', finances.length.toFixed());
+console.log('Total: $', totalProfit.toFixed());
+console.log('Average Change: $', avgChange.toFixed(2)); //toFixed method converts number to string and rounds number to specified decimal place
+console.log('Greatest Increase in Profits: $', greatestProfitInc.toFixed());
+console.log('Greatest Decrease in Profits: $', greatestProfitDec.toFixed());
