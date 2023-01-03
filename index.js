@@ -88,7 +88,14 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+//Summation of all profit values
+var totalProfit = 0;
+for (var i = 0; i < finances.length; i++){
+    totalProfit += finances[i][1]; //Ensures to only target numbers in array
+}
+
 //Console Output
 console.log('Financial Analysis');
 console.log('------------------');
 console.log('Total Months:', finances.length);
+console.log('Total: $', totalProfit);
