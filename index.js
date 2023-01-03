@@ -94,8 +94,23 @@ for (var i = 0; i < finances.length; i++){
     totalProfit += finances[i][1]; //Ensures to only target numbers in array
 }
 
+//Calculates the difference between each month and stores the results in a new array monthlyChange[]
+var monthlyChange = [];
+for (var i = 1; i < finances.length; i++){ //Starts at 2nd item in array
+    monthlyChange.push(finances[i][1] - finances[i-1][1]); //Takes an item in the array and subtract the previous item from it
+}
+
+//Sum of all monthly change values
+var totalMonthlyChange = 0;
+for (var i = 0; i < monthlyChange.length; i++){
+    totalMonthlyChange += monthlyChange[i];
+}
+
+var avgChange = totalMonthlyChange / monthlyChange.length; //Takes total sum of monthly changes and divides it by the total amount
+
 //Console Output
 console.log('Financial Analysis');
 console.log('------------------');
 console.log('Total Months:', finances.length);
 console.log('Total: $', totalProfit);
+console.log('Average Change:', avgChange.toFixed(2)); //toFixed method rounds number to specified decimal place
